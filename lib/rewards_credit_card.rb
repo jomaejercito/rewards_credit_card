@@ -1,5 +1,2 @@
-require "rewards_credit_card/version"
-
-module RewardsCreditCard
-  # Your code goes here...
-end
+require_relative "./rewards_credit_card/version"
+require_relative "./rewards_credit_card/cli"
