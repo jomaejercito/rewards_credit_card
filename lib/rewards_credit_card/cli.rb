@@ -2,6 +2,9 @@ class RewardsCreditCard::CLI
 
 
   def call
+    puts "Find the credit card that gives you the best rewards!"
+    puts "-----------------------------------------------------"
+    RewardsCreditCard::Scraper.new.make_card
     list_rewards
     menu
     goodbye
@@ -9,8 +12,6 @@ class RewardsCreditCard::CLI
 
 
   def list_rewards
-    puts "Find the credit card that gives you the best rewards!"
-    puts "-----------------------------------------------------"
     RewardsCreditCard::Card.all.each.with_index(1) do |card, i|
       puts "#{i}. #{card.best_for}"
     end
@@ -25,7 +26,14 @@ class RewardsCreditCard::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        print_card
+        card = RewardsCreditCard::Card.all[input.to_i - 1]
+        puts "#{card.best_for} #{card.name}"
+        puts ""
+        puts "Benefits: #{card.benefits}"
+        puts "Intro APR: #{card.intro_apr}"
+        puts "Regular APR: #{card.regular_apr}"
+        puts "Annual Fee: #{card.annual_fee}"
+        puts "Recommended Credit Score: #{card.recommended_credit_score}"
       elsif input == "menu"
         list_rewards
       else
@@ -37,18 +45,6 @@ class RewardsCreditCard::CLI
 
   def goodbye
     puts "Thank you and have a wonderful day!"
-  end
-
-
-  def print_card
-    card = RewardsCreditCard::Card.all[input.to_i - 1]
-    puts "#{card.best_for} #{card.name}"
-    puts ""
-    puts "Benefits: #{card.benefits}"
-    puts "Intro APR: #{card.intro_apr}"
-    puts "Regular APR: #{card.regular_apr}"
-    puts "Annual Fee: #{card.annual_fee}"
-    puts "Recommended Credit Score: #{card.recommended_credit_score}"
   end
 
 
