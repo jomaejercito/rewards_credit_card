@@ -34,6 +34,7 @@ class RewardsCreditCard::CLI
         puts "Regular APR: #{card.regular_apr}"
         puts "Annual Fee: #{card.annual_fee}"
         puts "Recommended Credit Score: #{card.recommended_credit_score}"
+        puts ""
       elsif input == "menu"
         list_rewards
       else

@@ -1,18 +1,9 @@
 class RewardsCreditCard::Scraper
 
 
-  def get_page
-    doc = Nokogiri::HTML(open("https://www.nerdwallet.com/the-best-credit-cards"))
-  end
-
-
-  def get_card
-    get_page.css("article.product-card")
-  end
-
-
   def make_card
-    self.get_card.each do |x|
+    doc = Nokogiri::HTML(open("https://www.nerdwallet.com/the-best-credit-cards"))
+    doc.css("article.product-card").each do |x|
       card = RewardsCreditCard::Card.new
       card.best_for = x.css("span.card-image-apply-set__card-desc _136gj").text
       card.name = x.css("h3.card-image-apply-set__card-name _1Fuct").text
