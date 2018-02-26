@@ -22,7 +22,7 @@ class RewardsCreditCard::CLI
     while input != "exit"
       puts "Please enter the number that corresponds to the preferred reward(s)."
       puts "You can also enter 'menu' to see the offers again or 'exit' to exit the program."
-      input.gets.strip.downcase
+      input = gets.strip.downcase
 
       if input.to_i > 0
         print_card
@@ -50,6 +50,6 @@ class RewardsCreditCard::CLI
     puts "Annual Fee: #{card.annual_fee}"
     puts "Recommended Credit Score: #{card.recommended_credit_score}"
   end
-  
+
 
 end
