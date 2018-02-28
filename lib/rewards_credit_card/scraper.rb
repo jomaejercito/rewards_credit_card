@@ -11,7 +11,8 @@ class RewardsCreditCard::Scraper
       card.intro_apr = x.css("ul.card-details._35sc7 li:first-child p.card-details__content._136gj").text
       card.regular_apr = x.css("ul.card-details._35sc7 li:nth-child(2) p.card-details__content._136gj").text
       card.annual_fee = x.css("ul.card-details._35sc7 li:nth-child(3) p.card-details__content._136gj").text
-      card.recommended_credit_score = x.css("span.likelihood-of-approval__label.likelihood-of-approval__label--min").first.text
+      card.recommended_credit_score_1 = x.css("span.likelihood-of-approval__label.likelihood-of-approval__label--min").first.text
+      card.recommended_credit_score_2 = x.css("span.likelihood-of-approval__label.likelihood-of-approval__label--max").first.text
 
       card.save
     end

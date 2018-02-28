@@ -35,7 +35,7 @@ class RewardsCreditCard::CLI
         puts "Intro APR: ".colorize(:green) + "#{card.intro_apr}"
         puts "Regular APR: ".colorize(:green) + "#{card.regular_apr}"
         puts "Annual Fee: ".colorize(:green) + "#{card.annual_fee}"
-        puts "Recommended Credit Score: ".colorize(:green) + "#{card.recommended_credit_score}"
+        puts "Recommended Credit Score: ".colorize(:green) + "#{card.recommended_credit_score_1} - #{card.recommended_credit_score_2}"
         puts ""
       elsif input == "menu"
         list_rewards
