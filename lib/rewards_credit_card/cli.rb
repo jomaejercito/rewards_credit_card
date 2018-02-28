@@ -12,6 +12,7 @@ class RewardsCreditCard::CLI
 
 
   def list_rewards
+    puts "Please enter the number that corresponds to the preferred reward(s)."
     RewardsCreditCard::Card.all.each.with_index(1) do |card, i|
       puts "#{i}. #{card.best_for}"
     end
@@ -21,8 +22,7 @@ class RewardsCreditCard::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "Please enter the number that corresponds to the preferred reward(s)."
-      puts "You can also enter 'menu' to see the offers again or 'exit' to exit the program."
+      puts "Enter 'menu' to see the offers or 'exit' to exit the program."
       input = gets.strip.downcase
 
       if input.to_i > 0
@@ -38,7 +38,7 @@ class RewardsCreditCard::CLI
       elsif input == "menu"
         list_rewards
       else
-        puts "Invalid input. Please enter 'menu' to see the offers again or 'exit' to exit the program."
+        puts "Invalid input. Please enter 'menu' to see the offers again or 'exit' to exit the program." unless input == "exit"
       end
     end
   end
