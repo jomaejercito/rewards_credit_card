@@ -4,7 +4,7 @@ class RewardsCreditCard::CLI
   def call
     puts "Find the credit card that gives you the best rewards!"
     puts "-----------------------------------------------------"
-    RewardsCreditCard::Scraper.new.make_card
+    RewardsCreditCard::Scraper.new.scrape_card
     list_rewards
     menu
     goodbye
