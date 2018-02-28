@@ -1,5 +1,5 @@
 class RewardsCreditCard::Scraper
-require "pry"
+
 
   def scrape_card
     doc = Nokogiri::HTML(open("https://www.nerdwallet.com/the-best-credit-cards"))

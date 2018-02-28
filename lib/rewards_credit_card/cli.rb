@@ -14,7 +14,7 @@ class RewardsCreditCard::CLI
   def list_rewards
     puts "Please enter the number that corresponds to the preferred reward(s)."
     RewardsCreditCard::Card.all.each.with_index(1) do |card, i|
-      puts "#{i}. #{card.best_for}"
+      puts "#{i}. #{card.best_for}".colorize(:blue)
     end
   end
 
@@ -27,13 +27,15 @@ class RewardsCreditCard::CLI
 
       if input.to_i > 0
         card = RewardsCreditCard::Card.all[input.to_i - 1]
-        puts "#{card.best_for} #{card.name}"
+        puts "#{card.best_for}".colorize(:blue)
+        puts "#{card.name}".colorize(:red)
         puts ""
-        puts "Benefits: #{card.benefits}"
-        puts "Intro APR: #{card.intro_apr}"
-        puts "Regular APR: #{card.regular_apr}"
-        puts "Annual Fee: #{card.annual_fee}"
-        puts "Recommended Credit Score: #{card.recommended_credit_score}"
+        puts "Benefits: ".colorize(:green) +  "#{card.benefits}."
+        puts ""
+        puts "Intro APR: ".colorize(:green) + "#{card.intro_apr}"
+        puts "Regular APR: ".colorize(:green) + "#{card.regular_apr}"
+        puts "Annual Fee: ".colorize(:green) + "#{card.annual_fee}"
+        puts "Recommended Credit Score: ".colorize(:green) + "#{card.recommended_credit_score}"
         puts ""
       elsif input == "menu"
         list_rewards
