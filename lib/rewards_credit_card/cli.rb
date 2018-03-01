@@ -28,9 +28,8 @@ class RewardsCreditCard::CLI
 
       if input.to_i > 0 && input.to_i <= RewardsCreditCard::Card.all.length
         card = RewardsCreditCard::Card.all[input.to_i - 1]
-        puts "#{card.best_for}".colorize(:blue)
         puts ""
-        puts "#{card.name}".colorize(:red)
+        puts "Best card for #{card.best_for}: ".colorize(:blue) + "#{card.name}".colorize(:red)
         puts ""
         puts "Benefits: ".colorize(:green) +  "#{card.benefits}."
         puts ""
