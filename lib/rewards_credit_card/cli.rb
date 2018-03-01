@@ -41,7 +41,7 @@ class RewardsCreditCard::CLI
       elsif input == "menu"
         list_rewards
       else
-        puts "Invalid input. Please enter 'menu' to see the offers again or 'exit' to exit the program." unless input == "exit"
+        puts "Invalid input." unless input == "exit"
       end
     end
   end
