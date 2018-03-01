@@ -2,8 +2,8 @@ class RewardsCreditCard::CLI
 
 
   def call
-    puts "Find the credit card that gives you the best rewards!"
-    puts "-----------------------------------------------------"
+    puts "Find the credit card that gives you the best rewards!".colorize(:green)
+    puts ""
     RewardsCreditCard::Scraper.new.scrape_card
     list_rewards
     menu
@@ -12,7 +12,7 @@ class RewardsCreditCard::CLI
 
 
   def list_rewards
-    puts "Please enter the number that corresponds to the preferred reward(s)."
+    puts "Please enter the number that corresponds to the preferred reward(s).".colorize(:red)
     RewardsCreditCard::Card.all.each.with_index(1) do |card, i|
       puts "#{i}. #{card.best_for}".colorize(:blue)
     end
@@ -22,12 +22,14 @@ class RewardsCreditCard::CLI
   def menu
     input = nil
     while input != "exit"
+      puts ""
       puts "Enter 'menu' to see the offers or 'exit' to exit the program."
       input = gets.strip.downcase
 
       if input.to_i > 0
         card = RewardsCreditCard::Card.all[input.to_i - 1]
         puts "#{card.best_for}".colorize(:blue)
+        puts ""
         puts "#{card.name}".colorize(:red)
         puts ""
         puts "Benefits: ".colorize(:green) +  "#{card.benefits}."
@@ -47,7 +49,7 @@ class RewardsCreditCard::CLI
 
 
   def goodbye
-    puts "Thank you and have a wonderful day!"
+    puts "Thank you and have a wonderful day!".colorize(:green)
   end
 
 
