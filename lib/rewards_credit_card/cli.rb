@@ -26,7 +26,7 @@ class RewardsCreditCard::CLI
       puts "Enter 'menu' to see the offers or 'exit' to exit the program."
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i <= RewardsCreditCard::Card.all.length
         card = RewardsCreditCard::Card.all[input.to_i - 1]
         puts "#{card.best_for}".colorize(:blue)
         puts ""
