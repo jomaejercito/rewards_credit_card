@@ -1,8 +1,6 @@
 # RewardsCreditCard
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rewards_credit_card`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the "Rewards Credit Card" gem! This Ruby Gem provides a CLI that shows the credit cards that offer the best rewards for different spending categories. Credit cards are the most convenient way of making payments, and each person spends money on different categories. If you spend a lot on a certain category, you might as well earn rewards and benefits from it! This gem allows users to find the best credit card suited for them based on their spending so that they can get optimal rewards.
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run Gem with command
+
+    $ rewards_credit_card
 
 ## Development
 
